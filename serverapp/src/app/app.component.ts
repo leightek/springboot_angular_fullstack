@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, startWith } from 'rxjs/operators';
-import { DataState } from './enum/data-status.enum';
+import { DataState } from './enum/data-state.enum';
 import { Status } from './enum/status.enum';
 import { AppState } from './interface/app-state';
 import { CustomResponse } from './interface/custom-response';
