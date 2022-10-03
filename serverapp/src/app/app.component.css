@@ -43,11 +43,12 @@ body {
     border: none;
     min-width: 50px;
     border-radius: 2px;
-    border: none !important;
+    border: none;
+    outline: none !important;
     margin-left: 10px;
 }
 
-table-title .btn i {
+.table-title .btn i {
     float: left;
     font-size: 21px;
     margin-right: 5px;
@@ -78,10 +79,16 @@ table.table-striped tbody tr:nth-of-type(odd) {
 }
 
 table.table-striped.table-hover tbody tr:hover {
-    background-color: #f5f5f5;
+    background: #f5f5f5;
 }
 
 table.table th i {
+    font-size: 13px;
+    margin: 0.5px;
+    cursor: pointer;
+}
+
+table.td:last-child i {
     opacity: 0.9;
     font-size: 22px;
     margin: 0 5px;
@@ -95,7 +102,7 @@ table.table td a {
     outline: none !important;
 }
 
-table.table td a.hover {
+table.table td a:hover {
     color: #2196F3;
 }
 
