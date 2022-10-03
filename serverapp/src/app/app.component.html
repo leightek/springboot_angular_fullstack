@@ -16,7 +16,7 @@
                         </a>
 
                         <span>
-                            <select name="status"
+                            <select #serverStat (change)="filterServers(serverStat.value)" name="status" ngModel="ALL"
                                 class="btn btn-info" style="height: 32.91px;">
                                 <option vale="ALL">ALL</option>
                                 <option value="SERVER_UP">SERVER_UP</option>
