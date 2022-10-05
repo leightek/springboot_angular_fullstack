@@ -87,7 +87,7 @@ public class ServerResource {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("server", serverService.delete(id)))
+                        .data(of("deleted", serverService.delete(id)))
                         .message("Server deleted")
                         .status(OK)
                         .statusCode(OK.value())
