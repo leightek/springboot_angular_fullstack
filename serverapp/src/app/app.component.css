@@ -84,11 +84,11 @@ table.table-striped.table-hover tbody tr:hover {
 
 table.table th i {
     font-size: 13px;
-    margin: 0.5px;
+    margin: 0 5px;
     cursor: pointer;
 }
 
-table.td:last-child i {
+table.table td:last-child i {
     opacity: 0.9;
     font-size: 22px;
     margin: 0 5px;

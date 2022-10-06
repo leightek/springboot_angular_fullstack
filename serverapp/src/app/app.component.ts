@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NotifierService } from 'angular-notifier';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, startWith } from 'rxjs/operators';
 import { DataState } from './enum/data-state.enum';
@@ -12,7 +13,7 @@ import { ServerService } from './service/server.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   appState$: Observable<AppState<CustomResponse>>;
@@ -23,14 +24,16 @@ export class AppComponent implements OnInit {
   filterStatus$ = this.filterSubject.asObservable();
   private isLoading = new BehaviorSubject<boolean>(false);
   isLoading$ = this.isLoading.asObservable();
+  // private readonly notifier: NotifierService;
 
-  constructor(private serverService: ServerService) {}
+  constructor(private serverService: ServerService, private notifier: NotifierService) {}
 
   ngOnInit(): void {
     this.appState$ = this.serverService.servers$
       .pipe(
         map(response => {
           this.dataSubject.next(response);
+          this.notifier.notify('success', 'You are awesome! I mean it!');
           return { dataState: DataState.LOADED_STATE, appData: { ...response, data: { servers: response.data.servers.reverse()} } }
         }),
         startWith({ dataState: DataState.LOADING_STATE }),
